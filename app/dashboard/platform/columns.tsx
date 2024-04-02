@@ -38,10 +38,6 @@ export const columns: ColumnDef<any>[] = [
     },
   },
   {
-    accessorKey: "category",
-    header: "分类",
-  },
-  {
     accessorKey: "type",
     header: "类型",
   },
@@ -49,15 +45,17 @@ export const columns: ColumnDef<any>[] = [
     accessorKey: "tag",
     header: "标签",
     cell({ row: { original } }) {
-      return <Badge variant="destructive">{original.tag}</Badge>;
+      return (
+        <div className="w-40">
+          <Badge variant="destructive">{original.tag}</Badge>
+        </div>
+      );
     },
   },
   {
     id: "actions",
     header: "操作",
     cell: ({ row }) => {
-      const payment = row.original;
-
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
