@@ -1,5 +1,6 @@
 "use client";
 
+import ConfirmDialog from "@/components/confirm";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +16,7 @@ import { MoreHorizontal } from "lucide-react";
 export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "name",
-    header: "名称",
+    header: "name",
     cell({ row }) {
       return (
         <div className="w-20">
@@ -28,7 +29,7 @@ export const columns: ColumnDef<any>[] = [
   },
   {
     accessorKey: "description",
-    header: "描述信息",
+    header: "description",
     cell({ row: { original } }) {
       return (
         <div className="text-ellipsis overflow-hidden whitespace-nowrap w-96">
@@ -39,11 +40,11 @@ export const columns: ColumnDef<any>[] = [
   },
   {
     accessorKey: "type",
-    header: "类型",
+    header: "type",
   },
   {
     accessorKey: "tag",
-    header: "标签",
+    header: "tag",
     cell({ row: { original } }) {
       return (
         <div className="w-60">
