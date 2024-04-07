@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import { DataTable } from "../platform/components/DataTable";
+import { DataTable } from "@/components/DataTable";
 import { request } from "@/lib/request";
 import { columns } from "./columns";
 import { revalidateTag } from "next/cache";
