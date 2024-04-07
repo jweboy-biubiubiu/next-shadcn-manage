@@ -15,6 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { capitalize } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -23,12 +24,15 @@ interface DataTableProps<TData, TValue> {
 
 export function DataTable<TData, TValue>({
   columns,
-  data = [],
+  data,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
-    data,
+    data: data != null ? data : [],
     columns,
     getCoreRowModel: getCoreRowModel(),
+    onRowSelectionChange(state) {
+      console.log(state);
+    },
   });
 
   return (
@@ -43,7 +47,7 @@ export function DataTable<TData, TValue>({
                     {header.isPlaceholder
                       ? null
                       : flexRender(
-                          header.column.columnDef.header,
+                          capitalize(header.column.columnDef.header as string),
                           header.getContext()
                         )}
                   </TableHead>
@@ -53,7 +57,7 @@ export function DataTable<TData, TValue>({
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows?.length ? (
+          {Array.isArray(table.getRowModel().rows) ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}

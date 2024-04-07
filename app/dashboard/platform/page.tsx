@@ -5,19 +5,24 @@ import { DataTable } from "./components/DataTable";
 import { columns } from "./columns";
 import { request } from "@/lib/request";
 import FormDialog from "./components/FormDialog";
+import { useRequest } from "@/hooks/useRequest";
 
 const Produce = async () => {
   const data = await request("/platform", { cache: "no-cache" });
+  // const { data } = useRequest("/platform");
+  // console.log(data);
+
+  return <DataTable columns={columns} data={data} />;
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>平台</CardTitle>
+      <CardHeader className="flex justify-between">
+        <CardTitle>
+          <span>平台</span>
+          <FormDialog triggerNode={<Button>新增</Button>} />
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="mb-4">
-          <FormDialog triggerNode={<Button>新增</Button>} />
-        </div>
         <DataTable columns={columns} data={data} />
       </CardContent>
     </Card>

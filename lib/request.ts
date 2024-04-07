@@ -15,23 +15,25 @@ export const request = async (
     });
     reqUrl += query;
   }
+  // _options.cache = "no-cache";
   _options.headers = new Headers({
     "content-type": "application/json; charset=utf-8",
   });
   if (_options.method === "POST") {
     _options.body = JSON.stringify(_options.data);
   }
-  console.log("request url", reqUrl);
+  console.log("request url", reqUrl, _options);
   try {
-    const { data, code } = await fetch(BASE_REQUEST_URL + url, _options).then(
-      (res) => res.json()
+    const res = await fetch(BASE_REQUEST_URL + url, _options).then((res) =>
+      res.json()
     );
-    console.log("data", data);
+    const { data, code } = res;
+    console.log("data", JSON.stringify(res), new Date());
     if (code === 0) {
       return data;
     }
   } catch (error) {
-    console.log("error", error);
+    console.log("error1", error);
     return null;
   }
 };
