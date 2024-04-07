@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 function Home() {
-  redirect("/dashboard/platform");
+  redirect("/dashboard/product");
 }
 
 export default Home;

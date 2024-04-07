@@ -66,7 +66,7 @@ const ProductForm = () => {
   const id = searchParams.get("id");
   const { data } = useSWR(() => `/platform/${id}`);
   const { trigger } = useSWRMutation(
-    () => (id ? `/platform/${id}` : "/platform"),
+    id ? () => `/platform/${id}` : "/platform",
     !!id ? updateProduct : createProduct,
     {
       onSuccess() {
