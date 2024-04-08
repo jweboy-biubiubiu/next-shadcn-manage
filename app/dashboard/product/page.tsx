@@ -34,10 +34,10 @@ import { columns } from "./columns";
 import { revalidateTag } from "next/cache";
 import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
-import ConfirmDialog from "@/components/confirm";
+import ConfirmDialog from "@/components/Confirm";
 import { CoreRow, Row } from "@tanstack/react-table";
 import Link from "next/link";
-import Dropdown from "@/components/dropdown";
+import Dropdown from "@/components/Dropdown";
 import QueryString from "qs";
 import { serializateUrlWithQuery } from "@/lib/utils";
 
@@ -98,7 +98,7 @@ const ProductPage = () => {
   return (
     <React.Fragment>
       <div className="ml-auto flex items-center gap-2">
-        <Dropdown
+        {/* <Dropdown
           options={[
             { label: "database", value: "database" },
             { label: "design", value: "design" },
@@ -116,13 +116,13 @@ const ProductPage = () => {
               </span>
             </Button>
           }
-        />
-        <Button size="sm" variant="outline" className="h-7 gap-1">
+        /> */}
+        {/* <Button size="sm" variant="outline" className="h-7 gap-1">
           <File className="h-3.5 w-3.5" />
           <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
             Export
           </span>
-        </Button>
+        </Button> */}
         <Link href="/dashboard/product/form">
           <Button size="sm" className="h-7 gap-1">
             <PlusCircle className="h-3.5 w-3.5" />

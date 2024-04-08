@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Coins,
   File,
   Home,
   LineChart,
@@ -92,7 +93,7 @@ function Dashboard({ children }: BaseComponentProps) {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="#"
+                    href="/dashboard/home"
                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
                     <Home className="h-5 w-5" />
@@ -101,7 +102,7 @@ function Dashboard({ children }: BaseComponentProps) {
                 </TooltipTrigger>
                 <TooltipContent side="right">Dashboard</TooltipContent>
               </Tooltip>
-              <Tooltip>
+              {/* <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
                     href="#"
@@ -112,42 +113,30 @@ function Dashboard({ children }: BaseComponentProps) {
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent side="right">Orders</TooltipContent>
-              </Tooltip>
+              </Tooltip> */}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="#"
+                    href="/dashboard/product"
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
                     <Package className="h-5 w-5" />
-                    <span className="sr-only">Products</span>
+                    <span className="sr-only">Product</span>
                   </Link>
                 </TooltipTrigger>
-                <TooltipContent side="right">Products</TooltipContent>
+                <TooltipContent side="right">Product</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="#"
+                    href="/dashboard/token"
                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
-                    <Users2 className="h-5 w-5" />
-                    <span className="sr-only">Customers</span>
+                    <Coins className="h-5 w-5" />
+                    <span className="sr-only">Token</span>
                   </Link>
                 </TooltipTrigger>
-                <TooltipContent side="right">Customers</TooltipContent>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href="#"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                  >
-                    <LineChart className="h-5 w-5" />
-                    <span className="sr-only">Analytics</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent side="right">Analytics</TooltipContent>
+                <TooltipContent side="right">Cropto token</TooltipContent>
               </Tooltip>
             </nav>
             <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
@@ -168,7 +157,7 @@ function Dashboard({ children }: BaseComponentProps) {
         </aside>
         <div className="flex flex-col sm:py-4 sm:pl-14">
           <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-            <Sheet>
+            {/* <Sheet>
               <SheetTrigger asChild>
                 <Button size="icon" variant="outline" className="sm:hidden">
                   <PanelLeft className="h-5 w-5" />
@@ -243,7 +232,7 @@ function Dashboard({ children }: BaseComponentProps) {
                   <BreadcrumbPage>All Products</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
-            </Breadcrumb>
+            </Breadcrumb> */}
             <div className="relative ml-auto flex-1 md:grow-0">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
@@ -259,13 +248,14 @@ function Dashboard({ children }: BaseComponentProps) {
                   size="icon"
                   className="overflow-hidden rounded-full"
                 >
-                  <Image
+                  {/* <Image
                     src="/placeholder-user.jpg"
                     width={36}
                     height={36}
                     alt="Avatar"
                     className="overflow-hidden rounded-full"
-                  />
+                  /> */}
+                  avatar
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">

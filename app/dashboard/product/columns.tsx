@@ -1,6 +1,6 @@
 "use client";
 
-import ConfirmDialog from "@/components/confirm";
+import ConfirmDialog from "@/components/Confirm";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
