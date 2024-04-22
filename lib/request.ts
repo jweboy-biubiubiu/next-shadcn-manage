@@ -1,7 +1,7 @@
 import QueryString from "qs";
 
-// const BASE_REQUEST_URL = "https://nest-api-service.vercel.app";
-const BASE_REQUEST_URL = "http://127.0.0.1:4000";
+const BASE_REQUEST_URL = "https://nest-api-service.vercel.app";
+// const BASE_REQUEST_URL = "http://127.0.0.1:4000";
 
 export const request = async (
   url: string,
