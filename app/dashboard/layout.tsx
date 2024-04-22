@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   Coins,
   File,
+  FilesIcon,
   Home,
   LineChart,
   ListFilter,
@@ -17,6 +18,7 @@ import {
   Settings,
   ShoppingCart,
   Users2,
+  Video,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -70,12 +72,15 @@ function Dashboard({ children }: BaseComponentProps) {
     <SWRConfig
       value={{
         fetcher: (resource, init) => {
-          return fetch(process.env.NEXT_PUBLIC_API_URL + resource, init).then(
-            async (res) => {
-              const data = await res.json();
-              return data?.data;
-            }
-          );
+          return fetch(
+            /(http|https):\/\/\S*/.test(process.env.NEXT_PUBLIC_API_URL)
+              ? resource
+              : process.env.NEXT_PUBLIC_API_URL + resource,
+            init
+          ).then(async (res) => {
+            const data = await res.json();
+            return data?.data;
+          });
         },
       }}
     >
@@ -129,6 +134,18 @@ function Dashboard({ children }: BaseComponentProps) {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
+                    href="/dashboard/r2"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                  >
+                    <FilesIcon className="h-5 w-5" />
+                    <span className="sr-only">R2</span>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side="right">R2</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
                     href="/dashboard/token"
                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
@@ -137,6 +154,18 @@ function Dashboard({ children }: BaseComponentProps) {
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent side="right">Cropto token</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href="/dashboard/media"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                  >
+                    <Video className="h-5 w-5" />
+                    <span className="sr-only">Media</span>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent side="right">Media editor</TooltipContent>
               </Tooltip>
             </nav>
             <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
